@@ -15,3 +15,9 @@ nowadays, so an online thrift store will offer them more choices. Also, for thos
 will be more convenient and their items could be seen by more people on the internet. Therefore, I am interested in
 working on this project.
 
+### User Stories
+- As a user, I want to be able to add my "almost new" sweater into the thrift store.
+- As a user, I want to be able to browse what the thrift store is selling right now.
+- As a user, I want to be able to view the details of a clothing.
+- As a user, I want to be able to view the items I have purchased in the thrift store.
+
