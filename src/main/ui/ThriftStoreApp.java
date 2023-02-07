@@ -29,7 +29,7 @@ public class ThriftStoreApp {
 
         boolean ifOperating = true;
         while (ifOperating) {
-            MenuOptions();
+            menuOptions();
             instruction = scanner.next();
             if (instruction.equals("upload") || instruction.equals("store")
                     || instruction.equals("buy") || instruction.equals("mine")) {
@@ -50,7 +50,7 @@ public class ThriftStoreApp {
     }
 
     // EFFECTS: provides users with options to continue
-    private void MenuOptions() {
+    private void menuOptions() {
         System.out.println("\nEnter one of the following:");
         System.out.println("upload  <-  to upload an item to be sold");
         System.out.println("store   <-  to view everything in the store");
