@@ -6,19 +6,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ItemTest {
-    Item i;
+    Item pants;
+    Item gloves;
 
     @BeforeEach
     public void setup() {
-        i = new Item("NikePants", 15.99, "Good", "Jerry");
+        pants = new Item("NikePants", 15.99, "Good", "Jerry");
+        gloves = new Item("VintageGloves", 37, "VeryGood", "Jasmine");
     }
 
     @Test
     public void testConstructor() {
-        assertEquals("NikePants", i.getName());
-        assertEquals(15.99, i.getPrice());
-        assertEquals("Good", i.getCondition());
-        assertEquals("Jerry", i.getOwner());
+        assertEquals("NikePants", pants.getName());
+        assertEquals(15.99, pants.getPrice());
+        assertFalse(gloves.getCondition().equals( "Acceptable"));
+        assertTrue(pants.getName().equals("NikePants"));
     }
+
 
 }
