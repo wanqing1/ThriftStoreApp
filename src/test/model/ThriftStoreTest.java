@@ -18,6 +18,7 @@ public class ThriftStoreTest {
     @Test
     public void testConstructor() {
         assertEquals(0, myStore.getAllItems().size());
+        assertEquals(new ArrayList<>(), myStore.getAllItems());
     }
 
     @Test
