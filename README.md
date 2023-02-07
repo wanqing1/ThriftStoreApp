@@ -1,6 +1,6 @@
 ## My Personal Project
 
-### An Online Thrift Store
+### A Thrift Store
 
 
  *Functions and Target Users*
@@ -10,14 +10,11 @@ second-hand products or sell something they own may use this application.
 
 
 *"Why is this project of interest to me"*
-- I came up with this idea because I like shopping in thrift stores. I believe lots of people prefer shopping online 
-nowadays, so an online thrift store will offer them more choices. Also, for those who would like to sell items, this 
-will be more convenient and their items could be seen by more people on the internet. Therefore, I am interested in
-working on this project.
+- I came up with this idea because I like shopping in thrift stores. For those who would like to sell items, uploading
+the information of their items will be more convenient and their items could be seen by more people on the app.
 
 ### User Stories
-- As a user, I want to be able to add my "almost new" sweater into the thrift store.
-- As a user, I want to be able to browse what the thrift store is selling right now.
-- As a user, I want to be able to view the details of a clothing.
+- As a user, I want to be able to add my "almost new" sweater to the thrift store.
+- As a user, I want to be able to view what the thrift store is selling right now.
 - As a user, I want to be able to view the items I have purchased in the thrift store.
 
