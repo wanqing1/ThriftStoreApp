@@ -17,10 +17,17 @@ public class ItemsPurchased {
         myItems.add(item);
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes all the items from the store that have already appeared in the items purchased
+    public void removeFromStore(ThriftStore thriftStore) {
+        for (Item i : myItems) {
+            if (thriftStore.getAllItems().contains(i)) {
+                thriftStore.remove(i);
+            }
+        }
+    }
 
     public ArrayList<Item> getItemsPurchased() {
         return myItems;
     }
-
-
 }

@@ -113,11 +113,7 @@ public class ThriftStoreApp {
             System.out.println("\nChoose one item from the store by entering its name:");
             printItemsInStore();
             confirmIfPurchase();
-            for (Item i : itemsPurchased.getItemsPurchased()) {
-                if (thriftStore.getAllItems().contains(i)) {
-                    thriftStore.remove(i);
-                }
-            }
+            itemsPurchased.removeFromStore(thriftStore);
         }
     }
 
