@@ -13,6 +13,7 @@ public class ThriftStoreApp {
     private ThriftStore thriftStore;
     private ItemsPurchased itemsPurchased;
     private Scanner scanner;
+    private String instruction;
 
     // EFFECTS: run the thrift store app
     public ThriftStoreApp() {
@@ -22,10 +23,10 @@ public class ThriftStoreApp {
     // MODIFIES: this
     // EFFECTS: interacts with users and processes their instructions
     private void goThriftStore() {
-        createNew();
+        thriftStore = new ThriftStore();
+        itemsPurchased = new ItemsPurchased();
+        scanner = new Scanner(System.in);
         System.out.println("\nWelcome to Wendy's Thrift Store!");
-
-        String instruction = "follow";
 
         boolean ifOperating = true;
         while (ifOperating) {
@@ -39,14 +40,6 @@ public class ThriftStoreApp {
             }
         }
         System.out.println("\nThank you! Have a nice day!");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: creates a ThriftStore, an ItemsPurchased, and a Scanner that reads my keyboard
-    private void createNew() {
-        thriftStore = new ThriftStore();
-        itemsPurchased = new ItemsPurchased();
-        scanner = new Scanner(System.in);
     }
 
     // EFFECTS: provides users with options to continue
