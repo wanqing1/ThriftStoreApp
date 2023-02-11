@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 // Represents a thrift store where users upload and purchase second-hand products.
 public class ThriftStore {
-
     private ArrayList<Item> store;
 
     // EFFECTS: creates a store

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-// Represents thrift store application
+// Represents a thrift store application
 public class ThriftStoreApp {
     private ThriftStore thriftStore;
     private ItemsPurchased itemsPurchased;
     private Scanner scanner;
     private String instruction;
 
-    // EFFECTS: run the thrift store app
+    // EFFECTS: runs the thrift store app
     public ThriftStoreApp() {
         goThriftStore();
     }

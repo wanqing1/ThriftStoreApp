@@ -9,10 +9,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ThriftStoreTest {
     ThriftStore myStore;
+    Item scarf;
+    Item hoodie;
+    Item jeans;
+    Item hairClip;
+    Item sweatshirt;
 
     @BeforeEach
     public void setup() {
         myStore = new ThriftStore();
+        scarf = new Item("Scarf", 6.25, "Good", "Ruby");
+        hoodie = new Item("RootsHoodie", 10.99, "VeryGood", "Danielle");
+        jeans = new Item("GlownyJeans", 46, "Acceptable", "Wanqing");
+        hairClip = new Item("HairClip", 12, "Good", "Ruby");
+        sweatshirt = new Item("NikeSweatshirt", 20.4, "VeryGood", "Ellen");
     }
 
     @Test
@@ -23,30 +33,25 @@ public class ThriftStoreTest {
 
     @Test
     public void testUploadOne() {
-        Item item = new Item("ZaraDress", 21, "VeryGood", "Sandy");
-        myStore.upload(item);
+        myStore.upload(hairClip);
         assertEquals(1, myStore.getAllItems().size());
-        assertEquals("ZaraDress", myStore.getAllItems().get(0).getName());
+        assertEquals("HairClip", myStore.getAllItems().get(0).getName());
     }
 
     @Test
     public void testUploadMultiple() {
         assertEquals(new ArrayList<>(), myStore.getAllItems());
-        Item scarf = new Item("Scarf", 6.25, "Good", "Ruby");
-        Item hoodie = new Item("RootsHoodie", 10.99, "VeryGood", "Danielle");
-        Item dress = new Item("GlownyDress", 46, "Acceptable", "Wanqing");
         myStore.upload(scarf);
         myStore.upload(hoodie);
         assertEquals(6.25, myStore.getAllItems().get(0).getPrice());
         assertEquals("Danielle", myStore.getAllItems().get(1).getOwner());
-        myStore.upload(dress);
+        myStore.upload(jeans);
         assertTrue(myStore.getAllItems().contains(scarf) && myStore.getAllItems().contains(hoodie)
-                && myStore.getAllItems().contains(dress));
+                && myStore.getAllItems().contains(jeans));
     }
 
     @Test
     public void testRemoveOne() {
-        Item jeans = new Item("OldNavyJeans", 19, "VeryGood", "Lesley");
         myStore.upload(jeans);
         assertEquals(1, myStore.getAllItems().size());
         myStore.remove(jeans);
@@ -55,8 +60,6 @@ public class ThriftStoreTest {
 
     @Test
     public void testRemoveMultiple() {
-        Item hairClip = new Item("HairClip", 12, "Good", "Ruby");
-        Item sweatshirt = new Item("NikeSweatshirt", 20.4, "VeryGood", "Ellen");
         myStore.upload(hairClip);
         myStore.upload(sweatshirt);
         myStore.remove(hairClip);

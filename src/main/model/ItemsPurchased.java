@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-// Represents my account showing what items I have purchased from the store
+// Represents users' account showing what items users have purchased from the store
 public class ItemsPurchased {
     private ArrayList<Item> myItems;
 
@@ -12,7 +12,7 @@ public class ItemsPurchased {
     }
 
     // MODIFIES: this
-    // EFFECTS: put the given item into items that users have purchased
+    // EFFECTS: puts the given item into items that users have purchased
     public void putInMyItems(Item item) {
         myItems.add(item);
     }
