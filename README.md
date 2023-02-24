@@ -17,4 +17,6 @@ the information of their items will be more convenient and their items could be 
 - As a user, I want to be able to add my "almost new" sweater to the thrift store.
 - As a user, I want to be able to view what the thrift store is selling right now.
 - As a user, I want to be able to view the items I have purchased in the thrift store.
+- As a user, I want to be able to save items that I have purchased and all items in the store, if I choose to.
+- As a user, I want to be able to load items that I have purchased and all items in the store from file, if I choose to.
 
