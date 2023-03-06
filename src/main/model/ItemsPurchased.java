@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents users' account showing what items users have purchased from the store
-public class ItemsPurchased {
+public class ItemsPurchased implements Writable {
     private ArrayList<Item> myItems;
 
     // EFFECTS: creates an ItemsPurchased to place items users have purchased
@@ -29,5 +33,20 @@ public class ItemsPurchased {
 
     public ArrayList<Item> getItemsPurchased() {
         return myItems;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("itemsPurchased", itemsPurchasedToJson());
+        return json;
+    }
+
+    private JSONArray itemsPurchasedToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Item t: myItems) {
+            jsonArray.put(t.toJson());
+        }
+        return jsonArray;
     }
 }

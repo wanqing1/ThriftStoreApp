@@ -3,7 +3,11 @@ package ui;
 import model.Item;
 import model.ItemsPurchased;
 import model.ThriftStore;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,9 +18,13 @@ public class ThriftStoreApp {
     private ItemsPurchased itemsPurchased;
     private Scanner scanner;
     private String instruction;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/myItemsAndStore.json";
+
 
     // EFFECTS: runs the thrift store app
-    public ThriftStoreApp() {
+    public ThriftStoreApp() throws FileNotFoundException {
         goThriftStore();
     }
 
@@ -26,6 +34,8 @@ public class ThriftStoreApp {
         thriftStore = new ThriftStore();
         itemsPurchased = new ItemsPurchased();
         scanner = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         System.out.println("\nWelcome to Wendy's Thrift Store!");
 
         boolean ifOperating = true;
@@ -33,7 +43,8 @@ public class ThriftStoreApp {
             menuOptions();
             instruction = scanner.next();
             if (instruction.equals("upload") || instruction.equals("store")
-                    || instruction.equals("buy") || instruction.equals("mine")) {
+                    || instruction.equals("buy") || instruction.equals("mine")
+                    || instruction.equals("save") || instruction.equals("load")) {
                 followInstructions(instruction);
             } else {
                 ifOperating = false;
@@ -49,9 +60,12 @@ public class ThriftStoreApp {
         System.out.println("store   <-  to view everything in the store");
         System.out.println("buy     <-  to purchase an item on sale");
         System.out.println("mine    <-  to view items purchased");
+        System.out.println("save    <-  to save purchased items and items in store to file");
+        System.out.println("load    <-  to load purchased items and items in store from file");
         System.out.println("quit    <-  to leave the store");
     }
 
+    //需要加!!
     // MODIFIES: this
     // EFFECTS: follows the command given by users
     private void followInstructions(String command) {
@@ -63,6 +77,10 @@ public class ThriftStoreApp {
             printItemsPurchased();
         } else if (command.equals("buy")) {
             purchaseAnItem();
+        } else if (command.equals("save")) {
+            saveItems();
+        } else if (command.equals("load")) {
+            loadItems();
         } else {
             System.out.println("Invalid instruction...");
         }
@@ -134,6 +152,29 @@ public class ThriftStoreApp {
                     System.out.println("Purchase cancelled.");
                 }
             }
+        }
+    }
+
+    //...
+    private void saveItems() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(itemsPurchased, thriftStore);
+            jsonWriter.close();
+            System.out.println("Saved purchased items and items in store to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    //...
+    private void loadItems() {
+        try {
+            thriftStore = jsonReader.readThriftStore();
+            itemsPurchased = jsonReader.readItemsPurchased();
+            System.out.println("Loaded purchased items and my items from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Sorry, unable to read from file: " + JSON_STORE);
         }
     }
 

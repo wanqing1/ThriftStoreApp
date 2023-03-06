@@ -1,0 +1,36 @@
+{"mineAndStore": [
+    {"itemsPurchased": [
+        {
+            "owner": "Tei",
+            "condition": "VeryGood",
+            "price": 65.732,
+            "name": "Tee"
+        },
+        {
+            "owner": "Jia",
+            "condition": "Acceptable",
+            "price": 18.4,
+            "name": "PurpleBottle"
+        }
+    ]},
+    {"itemsInStore": [
+        {
+            "owner": "Hindu",
+            "condition": "Good",
+            "price": 178.7,
+            "name": "GucciGlasses"
+        },
+        {
+            "owner": "faerie",
+            "condition": "Good",
+            "price": 256.99,
+            "name": "VintageLoafShoes"
+        },
+        {
+            "owner": "Emine",
+            "condition": "VeryGood",
+            "price": 62.6,
+            "name": "CrystalHighHeels"
+        }
+    ]}
+]}

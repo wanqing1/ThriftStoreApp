@@ -1,0 +1,17 @@
+{"mineAndStore": [
+  {"itemsPurchased": []},
+  {"itemsInStore": [
+    {
+      "owner": "Jake",
+      "condition": "Good",
+      "price": 97.5,
+      "name": "Sneakers"
+    },
+    {
+      "owner": "Jia",
+      "condition": "Good",
+      "price": 34.2,
+      "name": "VintageHairClip"
+    }
+  ]}
+]}

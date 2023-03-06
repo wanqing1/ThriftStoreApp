@@ -1,0 +1,17 @@
+{"mineAndStore": [
+  {"itemsPurchased": [
+    {
+      "owner": "Amy",
+      "condition": "Acceptable",
+      "price": 11,
+      "name": "HighHeels"
+    },
+    {
+      "owner": "Wendy",
+      "condition": "Good",
+      "price": 134.12,
+      "name": "GlownyJeans"
+    }
+  ]},
+  {"itemsInStore": []}
+]}

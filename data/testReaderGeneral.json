@@ -1,0 +1,24 @@
+{"mineAndStore": [
+  {"itemsPurchased": [
+    {
+      "owner": "Jay",
+      "condition": "Acceptable",
+      "price": 19.9,
+      "name": "Sunglasses"
+    }
+  ]},
+  {"itemsInStore": [
+    {
+      "owner": "Jia",
+      "condition": "Good",
+      "price": 12.78,
+      "name": "TankTop"
+    },
+    {
+      "owner": "Quan",
+      "condition": "VeryGood",
+      "price": 7.99,
+      "name": "Earrings"
+    }
+  ]}
+]}

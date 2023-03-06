@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents a thrift store where users upload and purchase second-hand products.
-public class ThriftStore {
+public class ThriftStore implements Writable {
     private ArrayList<Item> store;
 
     // EFFECTS: creates a store
@@ -25,5 +29,20 @@ public class ThriftStore {
 
     public ArrayList<Item> getAllItems() {
         return store;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("itemsInStore", itemsInStoreToJson());
+        return json;
+    }
+
+    private JSONArray itemsInStoreToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Item t: store) {
+            jsonArray.put(t.toJson());
+        }
+        return jsonArray;
     }
 }

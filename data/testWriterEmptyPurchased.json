@@ -1,0 +1,17 @@
+{"mineAndStore": [
+    {"itemsPurchased": []},
+    {"itemsInStore": [
+        {
+            "owner": "Sandy",
+            "condition": "Good",
+            "price": 14.56,
+            "name": "PinkDress"
+        },
+        {
+            "owner": "Amy",
+            "condition": "Good",
+            "price": 10,
+            "name": "NikePants"
+        }
+    ]}
+]}
