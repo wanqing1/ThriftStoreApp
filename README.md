@@ -20,3 +20,6 @@ the information of their items will be more convenient and their items could be 
 - As a user, I want to be able to save items that I have purchased and all items in the store, if I choose to.
 - As a user, I want to be able to load items that I have purchased and all items in the store from file, if I choose to.
 
+### References
+- Carter, P. (2021, October). *JsonSerializationDemo*. GitHub. 
+https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git

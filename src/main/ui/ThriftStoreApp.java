@@ -65,7 +65,6 @@ public class ThriftStoreApp {
         System.out.println("quit    <-  to leave the store");
     }
 
-    //需要加!!
     // MODIFIES: this
     // EFFECTS: follows the command given by users
     private void followInstructions(String command) {
@@ -155,7 +154,7 @@ public class ThriftStoreApp {
         }
     }
 
-    //...
+    // EFFECTS: saves purchased items and the store to file
     private void saveItems() {
         try {
             jsonWriter.open();
@@ -167,7 +166,8 @@ public class ThriftStoreApp {
         }
     }
 
-    //...
+    // MODIFIES: this
+    // EFFECTS: loads purchased items and the store from file
     private void loadItems() {
         try {
             thriftStore = jsonReader.readThriftStore();

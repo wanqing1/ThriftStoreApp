@@ -33,7 +33,7 @@ public class JsonWriterTest extends JsonTest{
         try {
             JsonWriter jsonWriter = new JsonWriter("./data/Purchased\0andStore.json");
             jsonWriter.open();
-            fail();
+            fail("IO Exception was expected");
         } catch (IOException e) {
             // pass
         }
@@ -51,7 +51,7 @@ public class JsonWriterTest extends JsonTest{
             assertEquals(0, jsonReader.readItemsPurchased().getItemsPurchased().size());
             assertEquals(0, jsonReader.readThriftStore().getAllItems().size());
         } catch (IOException e) {
-            fail();
+            fail("Exception should not have been thrown");
         }
     }
 
@@ -74,7 +74,7 @@ public class JsonWriterTest extends JsonTest{
             checkItem("NikePants", 10, "Good", "Amy",
                     jsonReader.readThriftStore().getAllItems().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Exception should not have been thrown");
         }
     }
 
@@ -97,7 +97,7 @@ public class JsonWriterTest extends JsonTest{
             checkItem("RedScarf", 8.2, "VeryGood", "Jia",
                     jsonReader.readItemsPurchased().getItemsPurchased().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Exception should not have been thrown");
         }
     }
 
@@ -126,7 +126,7 @@ public class JsonWriterTest extends JsonTest{
             checkItem("NikePants", 10, "Good", "Amy",
                     jsonReader.readThriftStore().getAllItems().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Exception should not have been thrown");
         }
     }
 

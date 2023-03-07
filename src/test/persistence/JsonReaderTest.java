@@ -12,7 +12,7 @@ public class JsonReaderTest extends JsonTest{
         JsonReader jsonReader = new JsonReader("./data/cannotFind.json");
         try {
             jsonReader.readItemsPurchased();
-            fail();
+            fail("IO Exception was expected");
         } catch(IOException e) {
             // pass
         }
@@ -25,7 +25,7 @@ public class JsonReaderTest extends JsonTest{
             assertEquals(0, jsonReader.readThriftStore().getAllItems().size());
             assertEquals(0, jsonReader.readItemsPurchased().getItemsPurchased().size());
         } catch (IOException e) {
-            fail();
+            fail("Couldn't read from file");
         }
     }
 
@@ -40,7 +40,7 @@ public class JsonReaderTest extends JsonTest{
             checkItem("VintageHairClip", 34.2, "Good", "Jia",
                     jsonReader.readThriftStore().getAllItems().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Couldn't read from file");
         }
     }
 
@@ -55,7 +55,7 @@ public class JsonReaderTest extends JsonTest{
             checkItem("GlownyJeans",134.12, "Good", "Wendy",
                     jsonReader.readItemsPurchased().getItemsPurchased().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Couldn't read from file");
         }
     }
 
@@ -72,7 +72,7 @@ public class JsonReaderTest extends JsonTest{
             checkItem("Earrings", 7.99, "VeryGood", "Quan",
                     jsonReader.readThriftStore().getAllItems().get(1));
         } catch (IOException e) {
-            fail();
+            fail("Couldn't read from file");
         }
     }
 

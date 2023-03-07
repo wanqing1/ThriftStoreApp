@@ -1,36 +1,42 @@
 {"mineAndStore": [
     {"itemsPurchased": [
         {
-            "owner": "Tei",
+            "owner": "Danielle",
             "condition": "VeryGood",
-            "price": 65.732,
-            "name": "Tee"
+            "price": 27.5,
+            "name": "RedScarfLong"
         },
         {
             "owner": "Jia",
-            "condition": "Acceptable",
-            "price": 18.4,
-            "name": "PurpleBottle"
+            "condition": "VeryGood",
+            "price": 106,
+            "name": "NeuAdultJacket"
+        },
+        {
+            "owner": "Tina",
+            "condition": "VeryGood",
+            "price": 19.8,
+            "name": "BabyBlueTop"
         }
     ]},
     {"itemsInStore": [
         {
-            "owner": "Hindu",
+            "owner": "Cherry",
             "condition": "Good",
-            "price": 178.7,
-            "name": "GucciGlasses"
+            "price": 128,
+            "name": "VintageLoafer"
         },
         {
-            "owner": "faerie",
+            "owner": "Tommy",
             "condition": "Good",
-            "price": 256.99,
-            "name": "VintageLoafShoes"
+            "price": 87.6,
+            "name": "GucciSunglasses"
         },
         {
-            "owner": "Emine",
+            "owner": "Wendy",
             "condition": "VeryGood",
-            "price": 62.6,
-            "name": "CrystalHighHeels"
+            "price": 36.99,
+            "name": "ZaraBlackDress"
         }
     ]}
 ]}
