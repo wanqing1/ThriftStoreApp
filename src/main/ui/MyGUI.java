@@ -47,7 +47,6 @@ public class MyGUI extends JFrame {
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(18, 18, 18, 18));
         initWindow();
         setLocationRelativeTo(null);
-        // pack();
         setVisible(true);
         setResizable(false);
     }
@@ -153,6 +152,19 @@ public class MyGUI extends JFrame {
         });
     }
 
+    public void displayAnItem(Item i) {
+        JLabel name = new JLabel(i.getName());
+        JLabel price = new JLabel(Double.toString(i.getPrice()));
+        JLabel owner = new JLabel(i.getOwner());
+        JLabel condition = new JLabel(i.getCondition());
+        JPanel itemPanel = new JPanel(new GridLayout(1, 4));
+        itemPanel.add(name);
+        itemPanel.add(price);
+        itemPanel.add(condition);
+        itemPanel.add(owner);
+        rightPanel.add(itemPanel);
+    }
+
     public void mineListener() {
         mineButton.addActionListener(new ActionListener() {
             @Override
@@ -222,9 +234,8 @@ public class MyGUI extends JFrame {
     }
 
     private void initSideBar() {
-        sideBar.setBounds(0, 0, 250, getHeight());
-        // sideBar.setSize(new Dimension(250, getHeight()));
-        sideBar.setBackground(Color.lightGray);
+        Color myColor = new Color(164, 187, 222, 128);
+        sideBar.setBackground(myColor);
         sideBar.setLayout(new BoxLayout(sideBar, BoxLayout.Y_AXIS));
         sideBar.add(Box.createRigidArea(new Dimension(0, 40)));
         sideBar.add(uploadButton);
@@ -257,26 +268,8 @@ public class MyGUI extends JFrame {
         add(rightPanel, BorderLayout.CENTER);
     }
 
-
-    public void displayAnItem(Item i) {
-        JLabel name = new JLabel(i.getName());
-        JLabel price = new JLabel(Double.toString(i.getPrice()));
-        JLabel owner = new JLabel(i.getOwner());
-        JLabel condition = new JLabel(i.getCondition());
-        JPanel itemPanel = new JPanel(new GridLayout(1, 4));
-        itemPanel.add(name);
-        itemPanel.add(price);
-        itemPanel.add(condition);
-        itemPanel.add(owner);
-        rightPanel.add(itemPanel);
-    }
-
     public void updateRightPanel() {
         rightPanel.revalidate();
         rightPanel.repaint();
-    }
-
-    public static void main(String[] args) {
-        new MyGUI();
     }
 }
