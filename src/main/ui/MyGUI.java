@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+// Represents a graphic user interface through which users can interact with the thrift store
 public class MyGUI extends JFrame {
     private ThriftStore thriftStore;
     private ItemsPurchased itemsPurchased;
@@ -40,24 +40,34 @@ public class MyGUI extends JFrame {
     private static final String JSON_STORE = "./data/myItemsAndStore.json";
 
 
+    // EFFECTS: creates a graphic user interface with a proper size and all functions activated
     public MyGUI() {
         super("Wendy's Thrift Store");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(new Dimension(700, 500));
-        ((JPanel) getContentPane()).setBorder(new EmptyBorder(18, 18, 18, 18));
+        setLayout(new BorderLayout());
+        ((JPanel) getContentPane()).setBorder(new EmptyBorder(20, 20, 20, 20));
         initWindow();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
     }
 
+    // MODIFIES: this
+    // EFFECTS: initializes components, left menu bar and right panel
     private void initWindow() {
         initComponents();
+        addListenersForButtons();
         initSideBar();
         initRightPanel();
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: creates all components for construction of menu bar, right panel and all functionalities
     private void initComponents() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         thriftStore = new ThriftStore();
         itemsPurchased = new ItemsPurchased();
         sideBar = new JPanel();
@@ -66,39 +76,32 @@ public class MyGUI extends JFrame {
         priceLabel = new JLabel("Price: ");
         ownerLabel = new JLabel("Owner: ");
         conditionLabel = new JLabel("Condition: ");
-
         nameField = new JTextField(10);
         priceField = new JTextField(10);
         ownerField = new JTextField(10);
         conditionField = new JTextField(10);
-
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
-
-        initAllButtons();
+        uploadButton = new JButton("Upload");
+        storeButton = new JButton("Store");
+        mineButton = new JButton("Mine");
+        saveButton = new JButton("Save");
+        loadButton = new JButton("Load");
+        submitButton = new JButton("Submit");
     }
 
-    public void initAllButtons() {
-        uploadButton = new JButton("Upload");
+    // EFFECTS: adds action listeners for all buttons
+    private void addListenersForButtons() {
         uploadListener();
-
-        storeButton = new JButton("Store");
         storeListener();
-
-        mineButton = new JButton("Mine");
         mineListener();
-
-        saveButton = new JButton("Save");
         saveListener();
-
-        loadButton = new JButton("Load");
         loadListener();
-
-        submitButton = new JButton("Submit");
         submitListener();
     }
 
-    public void uploadListener() {
+    // MODIFIES: this
+    // EFFECTS: enables the user to enter corresponding information of an item to upload to store when clicking
+    //          the Upload button
+    private void uploadListener() {
         uploadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,7 +112,10 @@ public class MyGUI extends JFrame {
         });
     }
 
-    public void displayAnItemWithBuyOption(Item i) {
+    // MODIFIES: this
+    // EFFECTS: displays the name, price, owner, condition and a buy option for the given item on the right panel;
+    //          moves the item from the store to purchased items and show a notice message when clicking the Buy button
+    private void displayAnItemWithBuyOption(Item i) {
         JLabel name = new JLabel(i.getName());
         JLabel price = new JLabel(Double.toString(i.getPrice()));
         JLabel owner = new JLabel(i.getOwner());
@@ -138,7 +144,10 @@ public class MyGUI extends JFrame {
         rightPanel.add(itemsInStorePanel);
     }
 
-    public void storeListener() {
+    // MODIFIES: this
+    // EFFECTS: enables the user to view all items in store with a buy option for each item when clicking
+    //          the Store button
+    private void storeListener() {
         storeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,7 +161,9 @@ public class MyGUI extends JFrame {
         });
     }
 
-    public void displayAnItem(Item i) {
+    // MODIFIES: this
+    // EFFECTS: displays the name, price, owner and condition of the given item on the right panel
+    private void displayAnItem(Item i) {
         JLabel name = new JLabel(i.getName());
         JLabel price = new JLabel(Double.toString(i.getPrice()));
         JLabel owner = new JLabel(i.getOwner());
@@ -165,7 +176,9 @@ public class MyGUI extends JFrame {
         rightPanel.add(itemPanel);
     }
 
-    public void mineListener() {
+    // MODIFIES: this
+    // EFFECTS: displays all purchased items on the right panel when clicking the Mine button
+    private void mineListener() {
         mineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -179,7 +192,9 @@ public class MyGUI extends JFrame {
         });
     }
 
-    public void saveListener() {
+    // MODIFIES: this
+    // EFFECTS: saves the state of application to file and show a notice message
+    private void saveListener() {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -191,11 +206,14 @@ public class MyGUI extends JFrame {
                 } catch (FileNotFoundException exception) {
                     JOptionPane.showMessageDialog(rightPanel, "Unable to write to file: " + JSON_STORE);
                 }
+                updateRightPanel();
             }
         });
     }
 
-    public void loadListener() {
+    // MODIFIES: this
+    // EFFECTS: loads the state of application from file and show a notice message
+    private void loadListener() {
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -203,15 +221,19 @@ public class MyGUI extends JFrame {
                     thriftStore = jsonReader.readThriftStore();
                     itemsPurchased = jsonReader.readItemsPurchased();
                     JOptionPane.showMessageDialog(
-                            rightPanel, "Loaded store and purchased items successfully.");
+                            rightPanel, "All reloaded!");
                 } catch (IOException exception) {
                     JOptionPane.showMessageDialog(rightPanel, "Unable to read from file: " + JSON_STORE);
                 }
+                updateRightPanel();
             }
         });
     }
 
-    public void submitListener() {
+    // MODIFIES: this
+    // EFFECTS: adds the item with entered name, price, owner and condition to the store and show a notice message;
+    //          clears the fields for name, price, condition and owner
+    private void submitListener() {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -233,6 +255,8 @@ public class MyGUI extends JFrame {
         });
     }
 
+    // MODIFIES: this
+    // EFFECTS: creates a menu bar on the left, with Upload, Store, Mine, Save, Load buttons
     private void initSideBar() {
         Color myColor = new Color(164, 187, 222, 128);
         sideBar.setBackground(myColor);
@@ -250,7 +274,9 @@ public class MyGUI extends JFrame {
         add(sideBar, BorderLayout.WEST);
     }
 
-    public void initRightPanel() {
+    // MODIFIES: this
+    // EFFECTS: creates a right panel and provides the users with spaces to enter information of an item
+    private void initRightPanel() {
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.add(nameLabel);
         rightPanel.add(nameField);
@@ -268,7 +294,9 @@ public class MyGUI extends JFrame {
         add(rightPanel, BorderLayout.CENTER);
     }
 
-    public void updateRightPanel() {
+    // MODIFIES: this
+    // EFFECTS: updates the layout and appearance of the right panel
+    private void updateRightPanel() {
         rightPanel.revalidate();
         rightPanel.repaint();
     }

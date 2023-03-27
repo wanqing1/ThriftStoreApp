@@ -27,7 +27,7 @@ menu bar on the left. Then, enter the required information into blank fields. Fi
 can view all the items in store by clicking the button "Store" from the menu bar.
 
 - You can generate the second required action related to adding Xs to a Y by first clicking the button "Store" from the
-menu bar. Then, choose the item you would like to purchase and click the corresponding button "buy". You can view all 
+menu bar. Then, choose the item you would like to purchase and click the corresponding button "Buy". You can view all 
 the purchased items by clicking the button "Mine" from the menu bar.
 
 - You can locate my visual component by running the MainGUI, and there will be an image of a thrift store appearing in 
