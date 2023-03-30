@@ -11,6 +11,12 @@
             "condition": "Acceptable",
             "price": 9.8,
             "name": "URFlowerSweater"
+        },
+        {
+            "owner": "Ryan",
+            "condition": "Good",
+            "price": 16.99,
+            "name": "GreenCoat"
         }
     ]},
     {"itemsInStore": [
@@ -21,16 +27,16 @@
             "name": "PurpleWashedJeans"
         },
         {
-            "owner": "Ryan",
-            "condition": "Good",
-            "price": 16.99,
-            "name": "GreenCoat"
-        },
-        {
             "owner": "Singh",
             "condition": "Good",
             "price": 18,
             "name": "ZaraBlackDress"
+        },
+        {
+            "owner": "Quan",
+            "condition": "Good",
+            "price": 59,
+            "name": "DownCoat"
         }
     ]}
 ]}
