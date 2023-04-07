@@ -44,7 +44,8 @@ public class MyGUI extends JFrame {
     private static final String JSON_STORE = "./data/myItemsAndStore.json";
 
 
-    // EFFECTS: creates a graphic user interface with a proper size and all functions activated
+    // EFFECTS: creates a graphic user interface with a proper size and all functions activated;
+    //          prints out all logged events when the application exits
     public MyGUI() {
         super("Wendy's Thrift Store");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
