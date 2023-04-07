@@ -19,6 +19,7 @@ public class ItemsPurchased implements Writable {
     // EFFECTS: puts the given item into items that users have purchased
     public void putInMyItems(Item item) {
         myItems.add(item);
+        EventLog.getInstance().logEvent(new Event(item.getName() + " successfully purchased"));
     }
 
     // MODIFIES: this

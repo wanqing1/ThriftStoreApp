@@ -19,6 +19,7 @@ public class ThriftStore implements Writable {
     // EFFECTS: adds the given item into the store
     public void upload(Item item) {
         this.store.add(item);
+        EventLog.getInstance().logEvent(new Event(item.getName() + " uploaded to store"));
     }
 
     // MODIFIES: this

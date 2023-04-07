@@ -1,42 +1,14 @@
 {"mineAndStore": [
-    {"itemsPurchased": [
-        {
-            "owner": "Danielle",
-            "condition": "VeryGood",
-            "price": 48.6,
-            "name": "VintageHeels"
-        },
-        {
-            "owner": "Edward",
-            "condition": "Acceptable",
-            "price": 9.8,
-            "name": "URFlowerSweater"
-        },
-        {
-            "owner": "Ryan",
-            "condition": "Good",
-            "price": 16.99,
-            "name": "GreenCoat"
-        }
-    ]},
-    {"itemsInStore": [
-        {
-            "owner": "Qing",
-            "condition": "VeryGood",
-            "price": 23,
-            "name": "PurpleWashedJeans"
-        },
-        {
-            "owner": "Singh",
-            "condition": "Good",
-            "price": 18,
-            "name": "ZaraBlackDress"
-        },
-        {
-            "owner": "Quan",
-            "condition": "Good",
-            "price": 59,
-            "name": "DownCoat"
-        }
-    ]}
+    {"itemsPurchased": [{
+        "owner": "John",
+        "condition": "Good",
+        "price": 12,
+        "name": "Pants"
+    }]},
+    {"itemsInStore": [{
+        "owner": "Ella",
+        "condition": "Good",
+        "price": 23.8,
+        "name": "Dress"
+    }]}
 ]}

@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Item;
 import model.ItemsPurchased;
 import model.ThriftStore;
@@ -11,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +48,13 @@ public class MyGUI extends JFrame {
     public MyGUI() {
         super("Wendy's Thrift Store");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                printLog(EventLog.getInstance());
+            }
+        });
         setSize(new Dimension(700, 500));
         setLayout(new BorderLayout());
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -51,6 +62,13 @@ public class MyGUI extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+    }
+
+
+    private void printLog(EventLog eventLog) {
+        for (Event event: EventLog.getInstance()) {
+            System.out.println(event.toString() + "\n");
+        }
     }
 
     // MODIFIES: this

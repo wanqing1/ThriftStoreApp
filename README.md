@@ -37,7 +37,22 @@ the center of screen for about a second before you interact with the store.
 
 - You can reload the state of my application by clicking the button "Load" from the menu bar.
 
+### Phase 4: Task 2
 
+Thu Apr 06 19:25:15 PDT 2023
+ZaraDress uploaded to store
+
+Thu Apr 06 19:26:22 PDT 2023
+GreenTailoredJacket uploaded to store
+
+Thu Apr 06 19:26:34 PDT 2023
+ZaraDress successfully purchased
+
+Thu Apr 06 19:27:06 PDT 2023
+NikePants uploaded to store
+
+Thu Apr 06 19:27:16 PDT 2023
+NikePants successfully purchased
 
 ### References
 - Carter, P. (2021, October). *JsonSerializationDemo*. GitHub. 
