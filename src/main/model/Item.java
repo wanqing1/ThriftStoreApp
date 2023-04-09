@@ -35,6 +35,7 @@ public class Item implements Writable {
         return  this.owner;
     }
 
+    // EFFECTS: returns the item into a JSONObject
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

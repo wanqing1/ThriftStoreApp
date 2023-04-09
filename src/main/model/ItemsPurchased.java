@@ -36,6 +36,7 @@ public class ItemsPurchased implements Writable {
         return myItems;
     }
 
+    // EFFECTS: returns the purchased items as a JSONObject
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -43,6 +44,7 @@ public class ItemsPurchased implements Writable {
         return json;
     }
 
+    // EFFECTS: returns the purchased items as a JSONArray
     private JSONArray itemsPurchasedToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Item t: myItems) {

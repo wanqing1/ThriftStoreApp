@@ -32,6 +32,7 @@ public class ThriftStore implements Writable {
         return store;
     }
 
+    // EFFECTS: returns the items in store as a JSONObject
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -39,6 +40,7 @@ public class ThriftStore implements Writable {
         return json;
     }
 
+    // EFFECTS: returns the items in store as a JSONArray
     private JSONArray itemsInStoreToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Item t: store) {
