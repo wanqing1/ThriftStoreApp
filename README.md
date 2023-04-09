@@ -57,7 +57,11 @@ NikePants successfully purchased
 ## Phase 4: Task 3
 To improve the diagram, I would probably create an interface for ThriftStore and ItemsPurchased, since both of them have 
 a method that adds an item into an ArrayList and a method that removes an item from the ArrayList. However, that could 
-make the application less straightforward, so it is a bit hard to name this interface.
+make the application less straightforward, so it is a bit hard to name this interface. It would also reduce coupling if I 
+refactor itemsInStoreToJson() and itemsPurchasedToJson() into one method in this interface. This method will take a
+list as parameter and return it as a JSONArray with every element turned into JSONObject.
+
+
 
 ## References
 - Carter, P. (2021, October). *JsonSerializationDemo*. GitHub. 
